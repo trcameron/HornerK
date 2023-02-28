@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usetikzlibrary{pgfplots.groupplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{loglogaxis}[
+	%ylabels at = edge left,
+	%yticklabels at = edge left,
+	%horizontal sep = 15pt,
+	xtick = {10^(0),10^(16),10^(32),10^(48),10^(64),10^(80),10^(96),10^(112)},
+	ytick = {10^(0),10^(-5),10^(-10),10^(-15),10^(-20)},
+	xlabel = {Condition Number},
+	ylabel = {Relative Error},
+	title = {HornerK},
+	cycle list name=black white
+]
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err1, col sep=comma]{../csv_files/horner_test_acc.csv};
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err2, col sep=comma]{../csv_files/horner_test_acc.csv};
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err3, col sep=comma]{../csv_files/horner_test_acc.csv};
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err4, col sep=comma]{../csv_files/horner_test_acc.csv};
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err5, col sep=comma]{../csv_files/horner_test_acc.csv};
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err6, col sep=comma]{../csv_files/horner_test_acc.csv};
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err7, col sep=comma]{../csv_files/horner_test_acc.csv};
+\addplot+[thick, densely dotted, mark=none] table [x=cond, y=err8, col sep=comma]{../csv_files/horner_test_acc.csv};
+\end{loglogaxis}
+\end{tikzpicture}
+
+\end{document}
